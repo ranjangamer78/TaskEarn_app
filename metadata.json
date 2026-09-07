@@ -1,0 +1,6 @@
+{
+  "name": "TaskEarn App Download",
+  "description": "Download TaskEarn Android APK to earn coins, complete tasks, daily streaks, scratch cards, and redeem rewards with direct Google Drive download.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
