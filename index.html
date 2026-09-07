@@ -2,6 +2,69 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        // Prevent "Cannot set property fetch of #<Window> which has only a getter"
+        try {
+          var _rawFetch = typeof window !== 'undefined' ? window.fetch : null;
+          var currentFetch = typeof _rawFetch === 'function' ? _rawFetch.bind(window) : _rawFetch;
+          
+          if (typeof window !== 'undefined') {
+            try {
+              Object.defineProperty(window, 'fetch', {
+                get: function() {
+                  return currentFetch;
+                },
+                set: function(fn) {
+                  currentFetch = fn;
+                },
+                configurable: true,
+                enumerable: true
+              });
+            } catch (e1) {
+              if (typeof Window !== 'undefined' && Window.prototype) {
+                try {
+                  Object.defineProperty(Window.prototype, 'fetch', {
+                    get: function() {
+                      return currentFetch;
+                    },
+                    set: function(fn) {
+                      currentFetch = fn;
+                    },
+                    configurable: true,
+                    enumerable: true
+                  });
+                } catch (e2) {}
+              }
+            }
+          }
+        } catch (e) {}
+
+        // Global safeguard for any uncaught "Cannot set property fetch" errors
+        if (typeof window !== 'undefined') {
+          var prevOnError = window.onerror;
+          window.onerror = function(message, source, lineno, colno, error) {
+            var msg = (message || (error && error.message) || '').toString();
+            if (msg.indexOf('fetch') !== -1 && msg.indexOf('only a getter') !== -1) {
+              return true; // suppress error
+            }
+            if (typeof prevOnError === 'function') {
+              return prevOnError.apply(this, arguments);
+            }
+            return false;
+          };
+
+          window.addEventListener('error', function(event) {
+            var msg = ((event && event.message) || (event && event.error && event.error.message) || '').toString();
+            if (msg.indexOf('fetch') !== -1 && msg.indexOf('only a getter') !== -1) {
+              if (event.preventDefault) event.preventDefault();
+              if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+              return true;
+            }
+          }, true);
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/jpeg" href="./images/taskearn_logo.jpg" />
     <title>TaskEarn App Download - Official Android APK (Direct Link)</title>
@@ -43,7 +106,24 @@
     </script>
   </head>
   <body class="bg-[#0b0c16] text-slate-100 antialiased selection:bg-amber-400 selection:text-black font-['Plus_Jakarta_Sans',sans-serif]">
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height:100vh;background:#0b0c16;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,sans-serif;text-align:center;">
+        <div style="max-width:440px;width:100%;padding:32px;background:#111326;border-radius:24px;border:1px solid rgba(245,158,11,0.25);box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
+          <div style="width:72px;height:72px;margin:0 auto 16px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;color:#000;box-shadow:0 10px 25px rgba(245,158,11,0.3);">
+            TE
+          </div>
+          <h1 style="font-size:24px;font-weight:800;color:#fff;margin:0 0 8px;">TaskEarn App</h1>
+          <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">Complete simple tasks, spin the wheel & earn real cash daily (v2.4.1)</p>
+          <a href="https://drive.google.com/uc?export=download&id=13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r&confirm=t" style="display:inline-block;width:100%;box-sizing:border-box;background:linear-gradient(to right,#f59e0b,#eab308);color:#000;font-weight:800;font-size:15px;padding:14px 20px;border-radius:14px;text-decoration:none;margin-bottom:12px;box-shadow:0 10px 20px rgba(245,158,11,0.25);">
+            Download TaskEarn APK (18.4MB)
+          </a>
+          <div style="font-size:11px;color:#64748b;display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span style="display:inline-block;width:8px;height:8px;background:#10b981;border-radius:50%;"></span>
+            Verified Clean & Safe • Google Drive Direct
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Fallback & Standalone Google Drive Direct Download Functionality -->
     <script>

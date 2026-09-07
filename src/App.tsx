@@ -24,12 +24,17 @@ export default function App() {
 
   // Read saved Google Drive link from localStorage or default to APP_CONFIG
   const [driveUrl, setDriveUrl] = useState<string>(() => {
-    const saved = localStorage.getItem('taskearn_drive_url');
-    // If empty or if it contains the old demo dummy id, use the real APP_CONFIG url
-    if (!saved || saved.includes('1wXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaB')) {
+    try {
+      const saved = typeof window !== 'undefined' ? localStorage.getItem('taskearn_drive_url') : null;
+      // If empty or if it contains the old demo dummy id, use the real APP_CONFIG url
+      if (!saved || saved.includes('1wXyZaBcDeFgHiJkLmNoPqRsTuVwXyZaB')) {
+        return APP_CONFIG.GOOGLE_DRIVE_APK_URL;
+      }
+      return saved;
+    } catch (e) {
+      console.warn('Unable to read localStorage:', e);
       return APP_CONFIG.GOOGLE_DRIVE_APK_URL;
     }
-    return saved;
   });
 
   const appInfo: AppInfo = {
@@ -51,7 +56,13 @@ export default function App() {
   const handleSaveDriveUrl = (newUrl: string) => {
     const trimmed = newUrl.trim() || DEFAULT_DRIVE_URL;
     setDriveUrl(trimmed);
-    localStorage.setItem('taskearn_drive_url', trimmed);
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('taskearn_drive_url', trimmed);
+      }
+    } catch (e) {
+      console.warn('Unable to save to localStorage:', e);
+    }
   };
 
   const driveFileId = extractDriveFileId(driveUrl);
