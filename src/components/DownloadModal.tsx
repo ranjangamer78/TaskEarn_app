@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { AppInfo } from '../types';
 import { triggerApkDownload, convertToDirectDriveDownload } from '../utils/driveDownloader';
+import { TASKEARN_LOGO } from '../utils/assets';
 
 interface DownloadModalProps {
   isOpen: boolean;
@@ -59,7 +60,7 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-1 shadow-lg shadow-amber-500/20">
               <img
-                src="/images/taskearn_logo.jpg"
+                src={TASKEARN_LOGO}
                 alt="TaskEarn Icon"
                 className="w-full h-full rounded-xl object-cover"
               />

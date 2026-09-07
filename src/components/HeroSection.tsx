@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { AppInfo } from '../types';
 import { convertToDirectDriveDownload } from '../utils/driveDownloader';
+import { TASKEARN_LOGO, TASKEARN_BANNER } from '../utils/assets';
 
 interface HeroSectionProps {
   appInfo: AppInfo;
@@ -56,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-purple-600 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition-opacity" />
                 <img
-                  src="/images/taskearn_logo.jpg"
+                  src={TASKEARN_LOGO}
                   alt="TaskEarn App Logo"
                   className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-amber-400/50 object-cover"
                 />
@@ -253,7 +254,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {/* Visual Banner */}
                 <div className="relative rounded-2xl overflow-hidden border border-white/10 aspect-[16/10] bg-purple-950/40">
                   <img
-                    src="/images/taskearn_banner.jpg"
+                    src={TASKEARN_BANNER}
                     alt="TaskEarn Gameplay & Rewards"
                     className="w-full h-full object-cover"
                   />

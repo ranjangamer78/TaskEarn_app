@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { PhoneFrame } from './PhoneFrame';
 import { ScreenshotSlide } from '../types';
+import { TASKEARN_LOGO, TASKEARN_BANNER } from '../utils/assets';
 
 interface ScreenshotSliderProps {
   onDownloadClick: () => void;
@@ -178,7 +179,7 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
                 <div className="w-full h-full rounded-[34px] overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#161233] to-[#0a0a14] p-4 text-center">
                   <div className="pt-6">
                     <img
-                      src="/images/taskearn_logo.jpg"
+                      src={TASKEARN_LOGO}
                       alt="TaskEarn Logo"
                       className="w-24 h-24 mx-auto rounded-3xl shadow-xl shadow-amber-500/20 border-2 border-amber-400/40 object-cover"
                     />
@@ -192,7 +193,7 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
 
                   <div className="rounded-2xl overflow-hidden border border-white/10 shadow-lg my-2">
                     <img
-                      src="/images/taskearn_banner.jpg"
+                      src={TASKEARN_BANNER}
                       alt="TaskEarn Banner Promo"
                       className="w-full h-44 object-cover"
                     />

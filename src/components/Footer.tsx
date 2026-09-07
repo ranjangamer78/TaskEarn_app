@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download, ShieldCheck, HardDrive, Heart } from 'lucide-react';
 import { AppInfo } from '../types';
+import { TASKEARN_LOGO } from '../utils/assets';
 
 interface FooterProps {
   appInfo: AppInfo;
@@ -21,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="md:col-span-6 space-y-3">
             <div className="flex items-center gap-3">
               <img
-                src="/images/taskearn_logo.jpg"
+                src={TASKEARN_LOGO}
                 alt="TaskEarn Logo"
                 className="w-10 h-10 rounded-2xl border border-amber-400/40 object-cover"
               />

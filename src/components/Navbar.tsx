@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download, ShieldCheck, Settings, ExternalLink, Sparkles } from 'lucide-react';
 import { convertToDirectDriveDownload } from '../utils/driveDownloader';
+import { TASKEARN_LOGO } from '../utils/assets';
 
 interface NavbarProps {
   onDownloadClick: () => void;
@@ -21,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <a href="#" className="flex items-center gap-3 group">
           <div className="relative">
             <img
-              src="/images/taskearn_logo.jpg"
+              src={TASKEARN_LOGO}
               alt="TaskEarn Logo"
               className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl shadow-md shadow-amber-500/20 border border-amber-400/40 object-cover group-hover:scale-105 transition-transform"
             />
