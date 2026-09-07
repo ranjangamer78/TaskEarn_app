@@ -50,35 +50,36 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-lg rounded-3xl bg-[#111326] border border-white/10 p-6 sm:p-7 shadow-2xl space-y-5 text-white overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+      <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto scrollbar-thin rounded-2xl sm:rounded-3xl bg-[#111326] border border-white/10 p-4 sm:p-7 shadow-2xl space-y-4 sm:space-y-5 text-white">
         {/* Glowing aura */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
 
         {/* Header */}
         <div className="flex items-center justify-between relative z-10">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-1 shadow-lg shadow-amber-500/20">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-1 shadow-lg shadow-amber-500/20 shrink-0">
               <img
                 src={TASKEARN_LOGO}
                 alt="TaskEarn Icon"
-                className="w-full h-full rounded-xl object-cover"
+                className="w-full h-full rounded-lg sm:rounded-xl object-cover"
               />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <h3 className="font-extrabold text-lg text-white font-['Outfit']">
+                <h3 className="font-extrabold text-base sm:text-lg text-white font-['Outfit']">
                   TaskEarn APK Download
                 </h3>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-[11px] sm:text-xs text-slate-400">
                 v{appInfo.version} • {appInfo.size} • Verified Clean
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+            className="p-2 sm:p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center shrink-0"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>

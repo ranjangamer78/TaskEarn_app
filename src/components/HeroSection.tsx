@@ -85,15 +85,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* Basic Information Bar (strictly required: Rate 4.5, User 11k, Active User 8k) */}
+            {/* Basic Information Bar (Rate 4.5, User 11k, Active User 8k, Size 18.4MB, Android 6+) */}
             <div
               id="stats-overview"
-              className="grid grid-cols-3 sm:grid-cols-5 gap-2.5 p-3.5 sm:p-4 rounded-2xl bg-[#121427]/90 border border-white/10 backdrop-blur-md shadow-xl"
+              className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-2.5 p-3 sm:p-4 rounded-2xl bg-[#121427]/90 border border-white/10 backdrop-blur-md shadow-xl"
             >
               {/* Rate 4.5 */}
               <div className="text-center p-2 rounded-xl bg-white/5">
-                <div className="flex items-center justify-center gap-1 text-amber-400 font-extrabold text-base sm:text-lg">
-                  <Star className="w-4 h-4 fill-amber-400" />
+                <div className="flex items-center justify-center gap-1 text-amber-400 font-extrabold text-sm sm:text-base lg:text-lg">
+                  <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 shrink-0" />
                   <span>4.5</span>
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-400 font-medium mt-0.5">
@@ -103,8 +103,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* Total User 11k */}
               <div className="text-center p-2 rounded-xl bg-white/5">
-                <div className="flex items-center justify-center gap-1 text-cyan-400 font-extrabold text-base sm:text-lg">
-                  <Users className="w-4 h-4" />
+                <div className="flex items-center justify-center gap-1 text-cyan-400 font-extrabold text-sm sm:text-base lg:text-lg">
+                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                   <span>11K+</span>
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-400 font-medium mt-0.5">
@@ -114,8 +114,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
               {/* Active User 8k */}
               <div className="text-center p-2 rounded-xl bg-white/5">
-                <div className="flex items-center justify-center gap-1 text-emerald-400 font-extrabold text-base sm:text-lg">
-                  <Activity className="w-4 h-4" />
+                <div className="flex items-center justify-center gap-1 text-emerald-400 font-extrabold text-sm sm:text-base lg:text-lg">
+                  <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                   <span>8K+</span>
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-400 font-medium mt-0.5">
@@ -124,8 +124,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* File Size */}
-              <div className="text-center p-2 rounded-xl bg-white/5 hidden sm:block">
-                <div className="text-white font-extrabold text-base sm:text-lg">
+              <div className="text-center p-2 rounded-xl bg-white/5">
+                <div className="text-white font-extrabold text-sm sm:text-base lg:text-lg">
                   18.4 MB
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-400 font-medium mt-0.5">
@@ -134,8 +134,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* OS Version */}
-              <div className="text-center p-2 rounded-xl bg-white/5 hidden sm:block">
-                <div className="text-purple-400 font-extrabold text-base sm:text-lg">
+              <div className="text-center p-2 rounded-xl bg-white/5 col-span-2 xs:col-span-1 md:col-span-1">
+                <div className="text-purple-400 font-extrabold text-sm sm:text-base lg:text-lg">
                   Android 6.0+
                 </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-400 font-medium mt-0.5">
@@ -145,7 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Download CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-2">
               {/* Primary Direct Download Button */}
               <a
                 id="hero-download-apk-btn"
@@ -154,20 +154,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 rel="noopener noreferrer"
                 download={`TaskEarn_v${appInfo.version}.apk`}
                 onClick={() => onDownloadClick()}
-                className="flex-1 py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-400 hover:from-amber-300 hover:to-amber-500 text-black font-extrabold text-base shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-3 cursor-pointer group no-underline"
+                className="flex-1 min-h-[52px] py-3.5 sm:py-4 px-4 sm:px-6 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-400 hover:from-amber-300 hover:to-amber-500 text-black font-extrabold text-sm sm:text-base shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-2.5 sm:gap-3 cursor-pointer group no-underline"
               >
-                <div className="p-2 bg-black text-amber-400 rounded-xl group-hover:rotate-6 transition-transform">
-                  <ArrowDownToLine className="w-5 h-5" />
+                <div className="p-1.5 sm:p-2 bg-black text-amber-400 rounded-xl group-hover:rotate-6 transition-transform shrink-0">
+                  <ArrowDownToLine className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xs uppercase font-bold tracking-wider opacity-80 leading-none">
-                    Fast Direct Download
+                  <div className="text-[10px] sm:text-xs uppercase font-bold tracking-wider opacity-80 leading-none">
+                    Direct APK Download
                   </div>
-                  <div className="text-lg font-black tracking-tight leading-tight">
-                    Download TaskEarn APK
+                  <div className="text-base sm:text-lg font-black tracking-tight leading-tight">
+                    Download TaskEarn
                   </div>
                 </div>
-                <span className="ml-auto text-xs bg-black/15 px-2 py-1 rounded-md font-mono font-bold">
+                <span className="ml-auto text-[10px] sm:text-xs bg-black/15 px-2 py-0.5 sm:py-1 rounded-md font-mono font-bold shrink-0">
                   v2.4.1
                 </span>
               </a>
@@ -180,26 +180,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 rel="noopener noreferrer"
                 download={`TaskEarn_v${appInfo.version}.apk`}
                 onClick={() => onDownloadClick()}
-                className="py-4 px-5 rounded-2xl bg-[#171a36] hover:bg-[#1f2347] text-white border border-indigo-500/30 hover:border-indigo-500/60 font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer no-underline"
+                className="min-h-[52px] py-3.5 sm:py-4 px-4 sm:px-5 rounded-2xl bg-[#171a36] hover:bg-[#1f2347] text-white border border-indigo-500/30 hover:border-indigo-500/60 font-bold text-xs sm:text-sm shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer no-underline"
                 title="Direct Download using Google Drive"
               >
-                <HardDrive className="w-5 h-5 text-emerald-400" />
+                <HardDrive className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0" />
                 <div className="text-left">
-                  <div className="text-[10px] text-slate-400 uppercase font-semibold">
+                  <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase font-semibold">
                     Google Drive
                   </div>
                   <div className="text-xs font-bold text-slate-100">
-                    Direct Download
+                    Drive Download
                   </div>
                 </div>
               </a>
 
-              {/* QR Code trigger for Mobile users */}
+              {/* QR Code trigger for Mobile / Desktop users */}
               <button
                 id="hero-qr-code-btn"
                 onClick={onShowQr}
-                className="p-4 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors flex items-center justify-center"
+                className="min-h-[52px] min-w-[52px] p-3 sm:p-4 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors flex items-center justify-center shrink-0 cursor-pointer"
                 title="Scan QR Code to download on Mobile"
+                aria-label="Show QR Code"
               >
                 <QrCode className="w-5 h-5" />
               </button>

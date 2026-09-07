@@ -17,11 +17,12 @@ export const QrModal: React.FC<QrModalProps> = ({ isOpen, onClose, downloadUrl }
   )}&bgcolor=111326&color=facc15&margin=10`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-sm rounded-3xl bg-[#111326] border border-white/10 p-6 shadow-2xl space-y-5 text-white text-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+      <div className="relative w-full max-w-sm max-h-[92vh] overflow-y-auto scrollbar-thin rounded-2xl sm:rounded-3xl bg-[#111326] border border-white/10 p-5 sm:p-6 shadow-2xl space-y-4 sm:space-y-5 text-white text-center">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+          aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>

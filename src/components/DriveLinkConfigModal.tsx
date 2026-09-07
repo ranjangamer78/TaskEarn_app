@@ -56,26 +56,27 @@ export const DriveLinkConfigModal: React.FC<DriveLinkConfigModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-lg rounded-3xl bg-[#111326] border border-white/10 p-6 shadow-2xl space-y-5 text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+      <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto scrollbar-thin rounded-2xl sm:rounded-3xl bg-[#111326] border border-white/10 p-4 sm:p-6 shadow-2xl space-y-4 sm:space-y-5 text-white">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
               <HardDrive className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-extrabold text-lg text-white font-['Outfit']">
-                Google Drive Direct Download Engine
+              <h3 className="font-extrabold text-base sm:text-lg text-white font-['Outfit']">
+                Google Drive Download Link
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-[11px] sm:text-xs text-slate-400">
                 Configure your custom APK Google Drive link
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center shrink-0 cursor-pointer"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>

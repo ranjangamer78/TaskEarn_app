@@ -48,7 +48,7 @@ export const PhoneFrame: React.FC<PhoneFrameProps> = ({
   return (
     <div
       id="phone-mockup-frame"
-      className={`relative mx-auto w-[310px] sm:w-[340px] h-[640px] sm:h-[680px] bg-[#0c0d1b] rounded-[44px] p-3 shadow-2xl shadow-indigo-950/60 border-[5px] border-[#20223d] ring-1 ring-white/10 flex flex-col justify-between overflow-hidden select-none ${className}`}
+      className={`relative mx-auto w-full max-w-[305px] sm:max-w-[340px] h-[590px] sm:h-[660px] max-h-[85vh] bg-[#0c0d1b] rounded-[38px] sm:rounded-[44px] p-2.5 sm:p-3 shadow-2xl shadow-indigo-950/60 border-[4px] sm:border-[5px] border-[#20223d] ring-1 ring-white/10 flex flex-col justify-between overflow-hidden select-none ${className}`}
     >
       {/* Phone Ear speaker & camera punch hole */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-5 w-32 bg-[#121327] rounded-b-xl flex items-center justify-center z-30">

@@ -107,15 +107,15 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
         </div>
 
         {/* Slider Controls Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-[#111322]/80 backdrop-blur-md p-3 rounded-2xl border border-white/5 max-w-4xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-8 bg-[#111322]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-white/5 max-w-4xl mx-auto">
           {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full scrollbar-none">
+          <div className="flex items-center gap-1.5 overflow-x-auto py-1 max-w-full scrollbar-none touch-pan-x">
             {slides.map((s, idx) => (
               <button
                 key={s.id}
                 id={`slide-tab-${s.id}`}
                 onClick={() => setCurrentIndex(idx)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                className={`px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all min-h-[40px] flex items-center shrink-0 cursor-pointer ${
                   currentIndex === idx
                     ? 'bg-purple-600 text-white shadow-md shadow-purple-600/30'
                     : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
@@ -127,22 +127,23 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
           </div>
 
           {/* Autoplay & Arrows */}
-          <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center justify-end gap-2 shrink-0">
             <button
               id="slider-autoplay-toggle"
               onClick={() => setIsAutoPlay(!isAutoPlay)}
-              className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs flex items-center gap-1.5 border border-white/5 transition-colors"
+              className="p-2 sm:px-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs flex items-center gap-1.5 border border-white/5 transition-colors min-h-[40px] cursor-pointer"
               title={isAutoPlay ? 'Pause auto slide' : 'Start auto slide'}
+              aria-label={isAutoPlay ? 'Pause auto slide' : 'Start auto slide'}
             >
               {isAutoPlay ? (
                 <>
                   <Pause className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="hidden sm:inline">Auto</span>
+                  <span className="text-xs">Auto</span>
                 </>
               ) : (
                 <>
                   <Play className="w-3.5 h-3.5 text-slate-400" />
-                  <span className="hidden sm:inline">Play</span>
+                  <span className="text-xs">Play</span>
                 </>
               )}
             </button>
@@ -150,7 +151,7 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
             <button
               id="slider-prev-btn"
               onClick={handlePrev}
-              className="p-2 rounded-xl bg-white/5 hover:bg-purple-600 hover:text-white text-slate-300 border border-white/5 transition-colors"
+              className="p-2 sm:p-2.5 rounded-xl bg-white/5 hover:bg-purple-600 hover:text-white text-slate-300 border border-white/5 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center cursor-pointer"
               aria-label="Previous Slide"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -158,7 +159,7 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
             <button
               id="slider-next-btn"
               onClick={handleNext}
-              className="p-2 rounded-xl bg-white/5 hover:bg-purple-600 hover:text-white text-slate-300 border border-white/5 transition-colors"
+              className="p-2 sm:p-2.5 rounded-xl bg-white/5 hover:bg-purple-600 hover:text-white text-slate-300 border border-white/5 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center cursor-pointer"
               aria-label="Next Slide"
             >
               <ChevronRight className="w-4 h-4" />
@@ -175,15 +176,15 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
 
             {/* If slide is Banner, show banner visual mockup or phone frame */}
             {currentSlide.screenType === 'banner' ? (
-              <div className="w-[310px] sm:w-[340px] h-[640px] sm:h-[680px] bg-[#0d0e1e] rounded-[44px] p-3 border-[5px] border-[#20223d] shadow-2xl flex flex-col justify-between overflow-hidden relative">
-                <div className="w-full h-full rounded-[34px] overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#161233] to-[#0a0a14] p-4 text-center">
+              <div className="w-full max-w-[305px] sm:max-w-[340px] h-[590px] sm:h-[660px] max-h-[85vh] bg-[#0d0e1e] rounded-[38px] sm:rounded-[44px] p-2.5 sm:p-3 border-[4px] sm:border-[5px] border-[#20223d] shadow-2xl flex flex-col justify-between overflow-hidden relative">
+                <div className="w-full h-full rounded-[30px] sm:rounded-[34px] overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#161233] to-[#0a0a14] p-4 text-center">
                   <div className="pt-6">
                     <img
                       src={TASKEARN_LOGO}
                       alt="TaskEarn Logo"
-                      className="w-24 h-24 mx-auto rounded-3xl shadow-xl shadow-amber-500/20 border-2 border-amber-400/40 object-cover"
+                      className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl sm:rounded-3xl shadow-xl shadow-amber-500/20 border-2 border-amber-400/40 object-cover"
                     />
-                    <div className="mt-4 font-extrabold text-2xl text-white font-['Outfit']">
+                    <div className="mt-4 font-extrabold text-xl sm:text-2xl text-white font-['Outfit']">
                       TaskEarn 3D Edition
                     </div>
                     <div className="text-xs text-amber-400 font-semibold mt-1">
@@ -195,7 +196,7 @@ export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ onDownloadCl
                     <img
                       src={TASKEARN_BANNER}
                       alt="TaskEarn Banner Promo"
-                      className="w-full h-44 object-cover"
+                      className="w-full h-40 sm:h-44 object-cover"
                     />
                   </div>
 

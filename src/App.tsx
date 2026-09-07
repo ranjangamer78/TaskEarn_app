@@ -136,16 +136,16 @@ export default function App() {
 
       {/* Floating Bottom Download Bar (Mobile/Tablet) */}
       {showFloatingCta && (
-        <div className="fixed bottom-4 left-4 right-4 z-40 sm:hidden animate-fade-in">
+        <div className="fixed bottom-3 left-3 right-3 z-40 sm:hidden animate-fade-in pb-[env(safe-area-inset-bottom,0px)]">
           <a
             href={directUrl}
             target="_blank"
             rel="noopener noreferrer"
             download={`TaskEarn_v${appInfo.version}.apk`}
             onClick={handleDownloadClick}
-            className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-400 text-black font-black text-sm uppercase tracking-wider shadow-2xl shadow-amber-500/40 flex items-center justify-center gap-2.5 border border-amber-300 cursor-pointer no-underline"
+            className="w-full min-h-[48px] py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-400 text-black font-black text-xs uppercase tracking-wider shadow-2xl shadow-amber-500/40 flex items-center justify-center gap-2 border border-amber-300 cursor-pointer no-underline"
           >
-            <Download className="w-4 h-4 text-black" />
+            <Download className="w-4 h-4 text-black shrink-0" />
             <span>Download TaskEarn APK (18.4MB)</span>
           </a>
         </div>
