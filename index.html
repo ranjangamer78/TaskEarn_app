@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <script>
+      // Ensure GitHub Pages repository subpath has trailing slash so relative scripts/images resolve
+      if (location.hostname.endsWith('github.io') && location.pathname.split('/').length === 2 && !location.pathname.endsWith('/')) {
+        location.replace(location.pathname + '/' + location.search + location.hash);
+      }
+    </script>
+    <script>
       (function() {
         // Prevent "Cannot set property fetch of #<Window> which has only a getter"
         try {
@@ -107,21 +113,265 @@
   </head>
   <body class="bg-[#0b0c16] text-slate-100 antialiased selection:bg-amber-400 selection:text-black font-['Plus_Jakarta_Sans',sans-serif]">
     <div id="root">
-      <div style="min-height:100vh;background:#0b0c16;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,sans-serif;text-align:center;">
-        <div style="max-width:440px;width:100%;padding:32px;background:#111326;border-radius:24px;border:1px solid rgba(245,158,11,0.25);box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);">
-          <div style="width:72px;height:72px;margin:0 auto 16px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;color:#000;box-shadow:0 10px 25px rgba(245,158,11,0.3);">
-            TE
+      <!-- Full-Website Static Pre-Render: Displays full rich landing page immediately everywhere -->
+      <div style="min-height:100vh;background:#0b0c16;color:#f8fafc;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;line-height:1.6;">
+        
+        <!-- Header / Navigation Bar -->
+        <header style="position:sticky;top:0;z-index:50;background:rgba(11,12,22,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);padding:14px 20px;">
+          <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;">
+              <img src="./images/taskearn_logo.jpg" alt="TaskEarn" style="width:40px;height:40px;border-radius:12px;border:1px solid rgba(245,158,11,0.4);object-fit:cover;" onerror="this.style.display='none'" />
+              <div>
+                <span style="font-size:20px;font-weight:900;letter-spacing:-0.5px;color:#fff;display:block;line-height:1.1;">Task<span style="color:#f59e0b;">Earn</span></span>
+                <span style="font-size:10px;font-weight:700;color:#10b981;letter-spacing:0.5px;text-transform:uppercase;">● Official App</span>
+              </div>
+            </a>
+
+            <nav style="display:flex;align-items:center;gap:20px;font-size:14px;font-weight:600;">
+              <a href="#features" style="color:#94a3b8;text-decoration:none;">Features</a>
+              <a href="#screenshots" style="color:#94a3b8;text-decoration:none;">Screenshots</a>
+              <a href="#how-to-install" style="color:#94a3b8;text-decoration:none;">Install Guide</a>
+              <a href="#reviews" style="color:#94a3b8;text-decoration:none;">Reviews</a>
+              <a href="https://drive.google.com/uc?export=download&id=13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r&confirm=t" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f59e0b,#eab308);color:#000;font-weight:800;font-size:13px;padding:9px 18px;border-radius:10px;text-decoration:none;box-shadow:0 4px 14px rgba(245,158,11,0.3);">
+                Download APK
+              </a>
+            </nav>
           </div>
-          <h1 style="font-size:24px;font-weight:800;color:#fff;margin:0 0 8px;">TaskEarn App</h1>
-          <p style="font-size:13px;color:#94a3b8;margin:0 0 20px;">Complete simple tasks, spin the wheel & earn real cash daily (v2.4.1)</p>
-          <a href="https://drive.google.com/uc?export=download&id=13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r&confirm=t" style="display:inline-block;width:100%;box-sizing:border-box;background:linear-gradient(to right,#f59e0b,#eab308);color:#000;font-weight:800;font-size:15px;padding:14px 20px;border-radius:14px;text-decoration:none;margin-bottom:12px;box-shadow:0 10px 20px rgba(245,158,11,0.25);">
-            Download TaskEarn APK (18.4MB)
-          </a>
-          <div style="font-size:11px;color:#64748b;display:flex;align-items:center;justify-content:center;gap:6px;">
-            <span style="display:inline-block;width:8px;height:8px;background:#10b981;border-radius:50%;"></span>
-            Verified Clean & Safe • Google Drive Direct
+        </header>
+
+        <!-- Hero Section -->
+        <section style="padding:48px 20px 64px;max-width:1200px;margin:0 auto;text-align:center;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);padding:6px 16px;border-radius:999px;color:#f59e0b;font-size:12px;font-weight:700;margin-bottom:24px;">
+            ✓ Official Android Release • 100% Clean & Verified • Version 2.4.1
           </div>
-        </div>
+
+          <h1 style="font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-1px;color:#ffffff;line-height:1.15;margin:0 0 16px;max-width:900px;margin-left:auto;margin-right:auto;">
+            Complete Simple Tasks & Earn <span style="color:#f59e0b;background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Real Cash Daily</span>
+          </h1>
+
+          <p style="font-size:clamp(15px,2vw,18px);color:#94a3b8;max-width:680px;margin:0 auto 32px;line-height:1.6;">
+            Download the official TaskEarn Android APK. Spin the lucky wheel, scratch bonus cards, maintain your daily check-in streak, and withdraw real cash directly via eSewa & Gift Cards.
+          </p>
+
+          <!-- Main Download CTA Button & Secondary Actions -->
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin-bottom:36px;">
+            <a href="https://drive.google.com/uc?export=download&id=13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r&confirm=t" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f59e0b,#eab308);color:#000;font-weight:900;font-size:16px;padding:16px 36px;border-radius:14px;text-decoration:none;box-shadow:0 12px 28px rgba(245,158,11,0.35);letter-spacing:-0.2px;">
+              ⬇ Download TaskEarn APK (18.4 MB)
+            </a>
+            <a href="https://drive.google.com/file/d/13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#15182e;color:#cbd5e1;font-weight:700;font-size:14px;padding:15px 24px;border-radius:14px;text-decoration:none;border:1px solid rgba(255,255,255,0.12);">
+              📁 Open in Google Drive
+            </a>
+          </div>
+
+          <!-- App Metrics Bar -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;max-width:850px;margin:0 auto 48px;background:#111326;padding:20px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 10px 30px rgba(0,0,0,0.4);">
+            <div>
+              <div style="font-size:22px;font-weight:900;color:#f59e0b;">4.5 ★</div>
+              <div style="font-size:11px;color:#94a3b8;font-weight:600;">6,420+ Reviews</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:900;color:#fff;">11K+</div>
+              <div style="font-size:11px;color:#94a3b8;font-weight:600;">Total Downloads</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:900;color:#10b981;">8K+</div>
+              <div style="font-size:11px;color:#94a3b8;font-weight:600;">Active Users</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:900;color:#fff;">18.4 MB</div>
+              <div style="font-size:11px;color:#94a3b8;font-weight:600;">Size (Fast Install)</div>
+            </div>
+            <div>
+              <div style="font-size:22px;font-weight:900;color:#38bdf8;">Android 6+</div>
+              <div style="font-size:11px;color:#94a3b8;font-weight:600;">Compatibility</div>
+            </div>
+          </div>
+
+          <!-- App Visual Banner -->
+          <div style="max-width:960px;margin:0 auto;border-radius:24px;overflow:hidden;border:1px solid rgba(245,158,11,0.25);box-shadow:0 25px 60px -15px rgba(0,0,0,0.7);">
+            <img src="./images/taskearn_banner.jpg" alt="TaskEarn Gameplay and Features" style="width:100%;height:auto;display:block;" onerror="this.style.display='none'" />
+          </div>
+        </section>
+
+        <!-- Screenshots / Live App Experience Section -->
+        <section id="screenshots" style="padding:64px 20px;background:#0d0f1e;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="max-width:1200px;margin:0 auto;">
+            <div style="text-align:center;margin-bottom:44px;">
+              <span style="color:#f59e0b;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;">App Screenshots</span>
+              <h2 style="font-size:32px;font-weight:900;color:#fff;margin:8px 0;">Explore TaskEarn In-App Screens</h2>
+              <p style="color:#94a3b8;font-size:15px;max-width:600px;margin:0 auto;">Authentic preview of how you earn coins, spin the wheel, and withdraw your funds.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.07);">
+                <div style="width:48px;height:48px;background:rgba(245,158,11,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;">🪙</div>
+                <h3 style="font-size:18px;font-weight:800;color:#fff;margin:0 0 8px;">1. Dashboard & Balance</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">Track your 90,165 coin balance (≈ ₹901.65), view transaction histories, and claim daily streak bonuses every morning.</p>
+              </div>
+
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.07);">
+                <div style="width:48px;height:48px;background:rgba(59,130,246,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;">🎡</div>
+                <h3 style="font-size:18px;font-weight:800;color:#fff;margin:0 0 8px;">2. Lucky Spin & Scratch</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">Spin the wheel to win up to 500 bonus coins. Scratch secret cards to reveal instant rewards and multiplier boosts.</p>
+              </div>
+
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.07);">
+                <div style="width:48px;height:48px;background:rgba(16,185,129,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;">💳</div>
+                <h3 style="font-size:18px;font-weight:800;color:#fff;margin:0 0 8px;">3. Instant Cash Withdrawal</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">Transparent cashout rates: 1,000 coins = ₹10. Request direct ₹200 and ₹300 eSewa payouts with fast transfers.</p>
+              </div>
+
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.07);">
+                <div style="width:48px;height:48px;background:rgba(236,72,153,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;">👥</div>
+                <h3 style="font-size:18px;font-weight:800;color:#fff;margin:0 0 8px;">4. Refer & Earn Bonus</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">Invite your friends with your custom referral code (CB8SIF). Earn 500 bonus coins for every friend who joins.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6 Ways to Earn Features Grid -->
+        <section id="features" style="padding:64px 20px;max-width:1200px;margin:0 auto;">
+          <div style="text-align:center;margin-bottom:44px;">
+            <span style="color:#f59e0b;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;">Core Features</span>
+            <h2 style="font-size:32px;font-weight:900;color:#fff;margin:8px 0;">6 High-Impact Ways to Earn Every Day</h2>
+            <p style="color:#94a3b8;font-size:15px;max-width:600px;margin:0 auto;">TaskEarn makes it easy to accumulate coins without complicated requirements.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:28px;margin-bottom:12px;">🔥</div>
+              <h3 style="font-size:17px;font-weight:800;color:#fff;margin:0 0 6px;">Daily Streak Multiplier</h3>
+              <p style="font-size:13px;color:#94a3b8;margin:0;">Check in every 24 hours to claim increasing coin rewards and unlock VIP multiplier chests.</p>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:28px;margin-bottom:12px;">🎡</div>
+              <h3 style="font-size:17px;font-weight:800;color:#fff;margin:0 0 6px;">Lucky Fortune Wheel</h3>
+              <p style="font-size:13px;color:#94a3b8;margin:0;">Spin free daily spins and win coin buckets, jackpot bonuses, and surprise gift cards.</p>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:28px;margin-bottom:12px;">🎟️</div>
+              <h3 style="font-size:17px;font-weight:800;color:#fff;margin:0 0 6px;">Scratch & Win Cards</h3>
+              <p style="font-size:13px;color:#94a3b8;margin:0;">Scratch gold and silver cards to unveil random coins credited immediately to your wallet.</p>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:28px;margin-bottom:12px;">🎬</div>
+              <h3 style="font-size:17px;font-weight:800;color:#fff;margin:0 0 6px;">Video Ads & Quick Tasks</h3>
+              <p style="font-size:13px;color:#94a3b8;margin:0;">Watch short promo videos and complete easy app tasks during your free time.</p>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:28px;margin-bottom:12px;">💰</div>
+              <h3 style="font-size:17px;font-weight:800;color:#fff;margin:0 0 6px;">eSewa Cashout & Free Fire</h3>
+              <p style="font-size:13px;color:#94a3b8;margin:0;">Withdraw straight to eSewa wallet, convert to Free Fire Diamonds or Google Play redeem codes.</p>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:28px;margin-bottom:12px;">🤝</div>
+              <h3 style="font-size:17px;font-weight:800;color:#fff;margin:0 0 6px;">Referral System</h3>
+              <p style="font-size:13px;color:#94a3b8;margin:0;">Share your link on WhatsApp and social media. Enjoy passive coin commissions forever.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3-Step Installation Guide -->
+        <section id="how-to-install" style="padding:64px 20px;background:#0d0f1e;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="max-width:1000px;margin:0 auto;text-align:center;">
+            <span style="color:#10b981;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;">Quick Setup</span>
+            <h2 style="font-size:32px;font-weight:900;color:#fff;margin:8px 0 16px;">How to Install TaskEarn on Android</h2>
+            <p style="color:#94a3b8;font-size:15px;margin-bottom:40px;">Follow these 3 easy steps to start earning in under 2 minutes:</p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:left;">
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+                <div style="width:36px;height:36px;background:#f59e0b;color:#000;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:14px;">1</div>
+                <h3 style="font-size:16px;font-weight:800;color:#fff;margin:0 0 6px;">Download APK</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">Click the direct download button to get the verified 18.4 MB APK file from Google Drive.</p>
+              </div>
+
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+                <div style="width:36px;height:36px;background:#f59e0b;color:#000;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:14px;">2</div>
+                <h3 style="font-size:16px;font-weight:800;color:#fff;margin:0 0 6px;">Allow Unknown Sources</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">When prompted by Android, toggle "Allow from this source" in your browser or file manager.</p>
+              </div>
+
+              <div style="background:#13152c;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+                <div style="width:36px;height:36px;background:#10b981;color:#000;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:14px;">3</div>
+                <h3 style="font-size:16px;font-weight:800;color:#fff;margin:0 0 6px;">Open & Earn Bonus</h3>
+                <p style="font-size:13px;color:#94a3b8;margin:0;">Launch the app, enter invite code <strong>CB8SIF</strong>, and receive your 500 welcome coins!</p>
+              </div>
+            </div>
+
+            <div style="margin-top:40px;">
+              <a href="https://drive.google.com/uc?export=download&id=13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r&confirm=t" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f59e0b,#eab308);color:#000;font-weight:900;font-size:15px;padding:15px 32px;border-radius:12px;text-decoration:none;box-shadow:0 8px 24px rgba(245,158,11,0.3);">
+                ⬇ Download TaskEarn APK (v2.4.1)
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- User Reviews & Social Proof -->
+        <section id="reviews" style="padding:64px 20px;max-width:1200px;margin:0 auto;">
+          <div style="text-align:center;margin-bottom:44px;">
+            <span style="color:#f59e0b;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;">Community Feedback</span>
+            <h2 style="font-size:32px;font-weight:900;color:#fff;margin:8px 0;">Rated 4.5 Stars by 11,000+ Users</h2>
+            <p style="color:#94a3b8;font-size:15px;max-width:600px;margin:0 auto;">See what our verified players have to say about payout speeds and tasks.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="color:#f59e0b;font-size:16px;margin-bottom:8px;">★★★★★</div>
+              <p style="font-size:14px;color:#e2e8f0;margin:0 0 16px;">"TaskEarn is 100% genuine! I completed the daily streak for 1 week and requested ₹200 to my eSewa. Received it within 2 hours!"</p>
+              <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#94a3b8;">
+                <span style="font-weight:700;color:#fff;">Rohan Shrestha</span>
+                <span style="color:#10b981;font-weight:700;">✓ Verified Payout</span>
+              </div>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="color:#f59e0b;font-size:16px;margin-bottom:8px;">★★★★★</div>
+              <p style="font-size:14px;color:#e2e8f0;margin:0 0 16px;">"Best pocket money app. Lucky wheel and scratch cards give free coins every day. The referral bonus of 500 coins is awesome."</p>
+              <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#94a3b8;">
+                <span style="font-weight:700;color:#fff;">Anjali Thapa</span>
+                <span style="color:#10b981;font-weight:700;">✓ 15 Referrals</span>
+              </div>
+            </div>
+
+            <div style="background:#111326;padding:24px;border-radius:20px;border:1px solid rgba(255,255,255,0.06);">
+              <div style="color:#f59e0b;font-size:16px;margin-bottom:8px;">★★★★★</div>
+              <p style="font-size:14px;color:#e2e8f0;margin:0 0 16px;">"Simple UI, no fake surveys, fast APK download from Google Drive. Withdrew ₹300 twice already without any issues."</p>
+              <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#94a3b8;">
+                <span style="font-weight:700;color:#fff;">Bikash Gurung</span>
+                <span style="color:#10b981;font-weight:700;">✓ Active Daily</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="padding:48px 20px;background:#090a14;border-top:1px solid rgba(255,255,255,0.08);text-align:center;">
+          <div style="max-width:1200px;margin:0 auto;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+              <img src="./images/taskearn_logo.jpg" alt="TaskEarn" style="width:32px;height:32px;border-radius:8px;" onerror="this.style.display='none'" />
+              <span style="font-size:18px;font-weight:900;color:#fff;">Task<span style="color:#f59e0b;">Earn</span></span>
+            </div>
+            <p style="font-size:13px;color:#64748b;max-width:550px;margin:0 auto 24px;">
+              Official Android APK distribution for TaskEarn Rewards App. Direct verified download link powered by Google Drive.
+            </p>
+            <div style="display:flex;justify-content:center;gap:24px;font-size:13px;color:#94a3b8;margin-bottom:24px;">
+              <a href="#features" style="color:#94a3b8;text-decoration:none;">Features</a>
+              <a href="#screenshots" style="color:#94a3b8;text-decoration:none;">Screenshots</a>
+              <a href="#how-to-install" style="color:#94a3b8;text-decoration:none;">Install Guide</a>
+              <a href="https://drive.google.com/uc?export=download&id=13tb91ZrJ8WYcOzvoxFmOZ14GtFRpKr9r&confirm=t" style="color:#f59e0b;font-weight:700;text-decoration:none;">Download APK</a>
+            </div>
+            <div style="font-size:12px;color:#475569;">
+              © 2026 TaskEarn App. All rights reserved. Package: com.taskearn.rewards
+            </div>
+          </div>
+        </footer>
+
       </div>
     </div>
 
